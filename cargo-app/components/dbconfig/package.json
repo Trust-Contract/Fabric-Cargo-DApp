@@ -1,0 +1,4 @@
+{
+    "name" : "dbconfig",
+    "main" : "./lib/main.js"
+}

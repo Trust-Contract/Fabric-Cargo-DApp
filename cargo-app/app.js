@@ -1,21 +1,27 @@
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
 //body-parser
-var bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 //
-var logger = require('morgan');
+const logger = require('morgan');
+const passport = require('passport');
 
-var dappRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var viewsRouter = require('./routes/view');
+const passportConfig = require('./passport');
+const dappRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const viewsRouter = require('./routes/view');
 
-var app = express();
+const app = express();
 //session
-var mysql=require('mysql');
-var session = require('express-session');
-var MySQLStore = require('express-mysql-session')(session);
+const mysql=require('mysql');
+const session = require('express-session');
+const MySQLStore = require('express-mysql-session')(session);
 //
+
+app.use(passport.initialize()); // passport 구동
+app.use(passport.session()); // 세션 연결
+passportConfig();
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');

@@ -53,11 +53,13 @@ app.factory('appFactory', function($http){
 	}
 
 	factory.cregister = function(data, callback){
-
-		$http.post('/register/', data).success(function(output){
-			callback(output)
-		});
-
+        // console.log(data);
+        if(data.password === data.pw_confirm){
+            $http.post('/register/', data).success(function(output){
+                callback(output)
+            });
+        }
+		
 	}
 
 	factory.clogininfo = function(callback){

@@ -1,11 +1,23 @@
-var express = require('express');
-var router = express.Router();
-var controller = require('../controller.js');
+const express = require('express');
+const router = express.Router();
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
 
-//로그인처리
-router.post('/login', (req, res) => {
- controller.loginuser(req,res);
+const controller = require('../controller.js');
+const registeruser = require('../components/user');
+
+router.post('/login', passport.authenticate('local',{failureRedirect: '/index', failureFlash: true}
+),function(req, res){
+  console.log('ID : '+ req.body.username);
+  console.log('******* signin *******');
+  res.json({success: true, msg: 'signin success'});
 });
+
+
+// //로그인처리
+// router.post('/login', (req, res) => {
+//  controller.loginuser(req,res);
+// });
 
 //로그아웃처리
 router.get('/logout',(req,res) => {
@@ -34,10 +46,12 @@ router.get('/logout',(req,res) => {
 
 //회원가입처리
 router.post('/register',(req,res)=>{
- controller.registeruser(req,res);
+  registeruser(req,res);
+//  controller.registeruser(req,res);
 });
 
 router.get('/logininfo',(req,res)=>{
+  console.log(req.user);
   sess=req.session;
   if(sess.userid){
     var info={

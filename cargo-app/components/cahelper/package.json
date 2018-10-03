@@ -1,0 +1,4 @@
+{
+    "name" : "cahelper",
+    "main" : "./lib/main.js"
+}

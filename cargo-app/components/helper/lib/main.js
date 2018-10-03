@@ -10,16 +10,18 @@ var store_path = path.join(os.homedir(), '.hfc-key-store');
 var member_user = null;  
 var tx_id = null;
 
+var channel = fabric_client.newChannel('mychannel');
+var peer = fabric_client.newPeer('grpc://192.168.99.100:7051');
+channel.addPeer(peer);
+var order = fabric_client.newOrderer('grpc://192.168.99.100:7050')
+channel.addOrderer(order);
+
+
 module.exports = (function(){
 
     var helper = {};
     // console.log('Store path:'+store_path);
-    var channel = fabric_client.newChannel('mychannel');
-    var peer = fabric_client.newPeer('grpc://192.168.99.100:7051');
-    channel.addPeer(peer);
-    var order = fabric_client.newOrderer('grpc://192.168.99.100:7050')
-    channel.addOrderer(order);
-
+   
     helper.getChaincodeRequest = function(chaincodeId, txId, fnc, chainId, args){
         function IsTypeString(value){
             if(value && (typeof value == "string")){

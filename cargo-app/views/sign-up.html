@@ -254,7 +254,7 @@
     <!-- =-=-=-=-=-=-= Sign UP Section =-=-=-=-=-=-= -->
 
     <section class="section-padding-70">
-        <div class="container">
+        <div ng-app="loginapp" ng-controller="appController" class="container">
         <div class="row">
 				<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 					<form class="registration">
@@ -263,23 +263,23 @@
 							<p>Already Signed Up? Click <a href="#">Sign In</a> to login your account.</p>
 						</div>
 
-						<label>First Name</label>
-						<input type="text" class="form-control margin-bottom-20">
+                        <label>First Name</label>
+						<input id="firstName"  type="text" class="form-control margin-bottom-20" ng-model="reg.first_name">
 
 						<label>Last Name</label>
-						<input type="text" class="form-control margin-bottom-20">
+						<input id="lastName" type="text" class="form-control margin-bottom-20" ng-model="reg.last_name">
 
 						<label>Email Address <span class="color-red">*</span></label>
-						<input type="text" class="form-control margin-bottom-20">
+						<input id="email" type="text" class="form-control margin-bottom-20" ng-model="reg.email">
 
 						<div class="row">
 							<div class="col-sm-6">
 								<label>Password <span class="color-red">*</span></label>
-								<input type="password" class="form-control margin-bottom-20">
+								<input id="password"  type="password" class="form-control margin-bottom-20" ng-model="reg.password">
 							</div>
 							<div class="col-sm-6">
 								<label>Confirm Password <span class="color-red">*</span></label>
-								<input type="password" class="form-control margin-bottom-20">
+								<input  id="pw_confirm" type="password" class="form-control margin-bottom-20" ng-model="reg.pw_confirm">
 							</div>
 						</div>
 						<hr>
@@ -287,14 +287,14 @@
 							<div class="col-md-8 col-sm-8 col-xs-12 checkbox">
                             
                              <div class="checkbox checkbox-default">
-                                <input type="checkbox" id="checkbox2">
+                                <input id="checkCondition" type="checkbox" id="checkbox2" ng-model="reg.checkCondition">
                                 <label for="checkbox2">
                                   I read <a href="#">Terms and Conditions</a>
                                 </label>
                             </div>
 							</div>
 							<div class="col-md-4 col-sm-4 col-xs-12 text-right">
-								<button type="submit" class="btn btn-primary btn-sm">Register</button>
+								<button type="submit" class="btn btn-primary btn-sm" ng-click="register()">Register</button>
 							</div>
 						</div>
 					</form>
@@ -416,11 +416,14 @@
     <!-- =-=-=-=-=-=-= JQUERY =-=-=-=-=-=-= -->
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery-migrate.min.js"></script>
+    <!-- =-=-=-=-=-=-= angular =-=-=-=-=-=-= -->
+    <script src="js/angular.min.js"></script>
     <!-- Bootstrap Core Css  -->
     <script src="js/bootstrap.min.js"></script>
     <!-- Dropdown Hover  -->
      <script src="js/bootstrap-dropdownhover.min.js"></script><!-- Jquery Easing -->
     <script type="text/javascript" src="js/easing.js"></script>
+    <script src="js/user.js"></script>
     <!-- Jquery Counter -->
     <script src="js/jquery.countTo.js"></script>
     <!-- Jquery Waypoints -->
