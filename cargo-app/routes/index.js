@@ -117,14 +117,6 @@ router.post('/add_point', function(req, res){
   }
 });
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index');
-});
-
-router.get('/login',(req, res, next) => {
-  res.render('login');
-});
 
 
 module.exports = router;

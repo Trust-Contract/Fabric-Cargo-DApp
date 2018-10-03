@@ -6,8 +6,9 @@ var bodyParser = require('body-parser');
 //
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
+var dappRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var viewsRouter = require('./routes/view');
 
 var app = express();
 //session
@@ -32,18 +33,19 @@ app.use(session({
    secret: '1234DSFs@adf1234!@#$asd',
    resave: false,
    saveUninitialized: true,
-   store:new MySQLStore({
-     host:'localhost',
-     port:3306,
-     user:'root',
-     password:'konyang',
-     database:'test'
-   })
+  //  store:new MySQLStore({
+  //    host:'localhost',
+  //    port:3306,
+  //    user:'root',
+  //    password:'konyang',
+  //    database:'test'
+  //  })
  }));
 //
 
-app.use('/', indexRouter);
+app.use('/', dappRouter);
 app.use('/', usersRouter);
+app.use('/', viewsRouter);
 
 var port = process.env.PORT || 8000;
 
