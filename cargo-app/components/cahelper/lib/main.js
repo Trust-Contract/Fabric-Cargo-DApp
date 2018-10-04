@@ -58,7 +58,7 @@ module.exports = (function(){
 }//helper.registerUser() _end
 
 cahelper.enrollCaUser = function(id,password,handler,errhandler){
-  fabric_client = handlernull;
+//   fabric_client = null;
   fabric_ca_client = null;
   fabric_client = new Fabric_Client();
 
@@ -83,8 +83,9 @@ cahelper.enrollCaUser = function(id,password,handler,errhandler){
      cryptoContent: { privateKeyPEM: enrollment.key.toBytes(), signedCertPEM: enrollment.certificate }
   });
 }).then(function (user){
-  handler(user);
-  return fabric_client.setUserContext(user);
+  fabric_client.setUserContext(user);
+  
+  return handler(user);
 }).then(function (){
   console.log("complete(;)")
 }).catch(errhandler);

@@ -280,71 +280,68 @@ controller.prototype.subtract_point = function(req, res){
 // 		}
 
 // 	}
+var dbconfig = require('./components/dbconfig');
 
-// controller.prototype.loginuser = function(req,res){
-// 		try{req.body = JSON.parse(Object.keys(req.body)[0])}catch(err){req.body = req.body}
-// 		console.log("loginuser start")
-// 		var userid=req.body.userid,
-// 		    password=req.body.password;
+controller.prototype.loginuser = function(req,res){
+		try{req.body = JSON.parse(Object.keys(req.body)[0])}catch(err){req.body = req.body}
+		console.log("loginuser start")
+		var userid=req.body.userid,
+		    password=req.body.password;
 
-//     if(userid!="" && password!=""){
-// 			var conn = mysql.createConnection({
-// 			host : 'localhost',
-// 			user : 'root',
-// 			password : 'konyang',
-// 			port:3306,
-// 			database : 'blockchain'});
+    if(userid!="" && password!=""){
+			var conn = mysql.createConnection(dbconfig);
 
-// 		conn.query("SELECT pw FROM users WHERE id='"+userid+"'",function(err,rows,fields){
-// 			if(err) throw err;
+		conn.query("SELECT pw FROM users WHERE id='"+userid+"'",function(err,rows,fields){
+			if(err) throw err;
 
-// 			if(rows[0]!=undefined){
-//         if(password==rows[0].pw){
-// 					console.log("auth success");
-// 					cahelper.enrollCaUser(userid,password,handler,errhandler);
-// 				}else{
-// 					console.log("auth fail");
-// 					var result={
-// 						data:"fail"
-// 					}
-// 					res.send(result);
-// 				}
-// 			}else{
-// 				var result={
-// 					data:"fail"
-// 				}
-// 				console.log("faile user not found");
-// 				res.send(result);
-// 			}
-// 		});
-// 		conn.end();
-// 	 }else{
-// 		 console.log("[fail] arguments error");
-// 		 var result={
-// 			 data:"fail"
-// 		 }
-// 			res.send(result);
-//    }
+			if(rows[0]!=undefined){
+        if(password==rows[0].pw){
+					console.log("auth success");
+					cahelper.enrollCaUser(userid,password,handler,errhandler);
+				}else{
+					console.log("auth fail");
+					var result={
+						data:"fail"
+					}
+					res.send(result);
+				}
+			}else{
+				var result={
+					data:"fail"
+				}
+				console.log("faile user not found");
+				res.send(result);
+			}
+		});
+		conn.end();
+	 }else{
+		 console.log("[fail] arguments error");
+		 var result={
+			 data:"fail"
+		 }
+			res.send(result);
+   }
 
-// 		function handler(user){
-// 			console.log("handler");
-// 			req.session.userid=userid;
-// 			req.session.userobj=JSON.stringify(JSON.parse(user));
-// 			console.log("user login sucess");
-// 			var result = {
-// 				data:"user login success"
-// 			};
-// 			res.send(result);
-// 		}
+		function handler(user){
+			console.log("handler");
+			req.session.userid=userid;
+			req.session.userobj=JSON.stringify(JSON.parse(user));
+			console.log("user login sucess");
+			var result = {
+				data:"user login success"
+			};
+			res.send(result);
+			// return res.redirect("/");
+		}
 
-// 		function errhandler(err){
-// 			console.log(err);
-// 			var result={
-// 				data:err
-// 			}
-// 			res.send(result);
-// 		}
-// 	}//loginuser end
+		function errhandler(err){
+			console.log(err);
+			var result={
+				data:err
+			}
+			res.send(result);
+		}
+	}//loginuser end
 
 
 

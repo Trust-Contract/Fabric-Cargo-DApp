@@ -50,7 +50,7 @@
 <![endif]-->
 </head>
 
-<body>
+<body >
     <!-- =-=-=-=-=-=-= PRELOADER =-=-=-=-=-=-= -->
     <div class="preloader"><span class="preloader-gif"></span></div>
 
@@ -254,19 +254,19 @@
     <!-- =-=-=-=-=-=-= Sign In Section =-=-=-=-=-=-= -->
 
     <section class="section-padding-70">
-        <div class="container">
+        <div ng-app="loginapp" ng-controller="appController" class="container">
         <div class="row">
 				<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-					<form class="registration">
+					<form class="registration" >
 						<div class="box-header">
 							<h2>Login to your account</h2>
 						</div>
 
 						<label>User Name</label>
-						<input type="text" class="form-control margin-bottom-20">
+						<input type="text" class="form-control margin-bottom-20" ng-model="logn.userid">
 						
 						<label>Password <span class="color-red">*</span></label>
-						<input type="password" class="form-control margin-bottom-20">
+						<input type="password" class="form-control margin-bottom-20" ng-model="logn.password">
 
 						<div class="row">
 							<div class="col-md-8 col-sm-8 col-xs-12">
@@ -278,7 +278,7 @@
                             </div>
 							</div>
 							<div class="col-md-4 row col-sm-4 col-xs-12 text-right">
-								<button type="submit" class="btn btn-primary btn-sm">Login</button>
+								<button type="submit" class="btn btn-primary btn-sm" ng-click="login()">Login</button>
 							</div>
 						</div>
                         <hr>
@@ -403,11 +403,14 @@
     <!-- =-=-=-=-=-=-= JQUERY =-=-=-=-=-=-= -->
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery-migrate.min.js"></script>
+    <!-- =-=-=-=-=-=-= angular =-=-=-=-=-=-= -->
+    <script src="js/angular.min.js"></script>
     <!-- Bootstrap Core Css  -->
     <script src="js/bootstrap.min.js"></script>
     <!-- Dropdown Hover  -->
      <script src="js/bootstrap-dropdownhover.min.js"></script><!-- Jquery Easing -->
     <script type="text/javascript" src="js/easing.js"></script>
+    <script src="js/user.js"></script>
     <!-- Jquery Counter -->
     <script src="js/jquery.countTo.js"></script>
     <!-- Jquery Waypoints -->

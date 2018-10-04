@@ -15,10 +15,18 @@ const viewsRouter = require('./routes/view');
 const app = express();
 //session
 const mysql=require('mysql');
+const dbconfig = require('./components/dbconfig');
 const session = require('express-session');
 const MySQLStore = require('express-mysql-session')(session);
+const flash = require('connect-flash');
 //
-
+app.use(session({
+  secret: '1234DSFs@adf1234!@#$asd',
+  resave: false,
+  saveUninitialized: true,
+  // store:new MySQLStore(dbconfig)
+}));
+app.use(flash());
 app.use(passport.initialize()); // passport 구동
 app.use(passport.session()); // 세션 연결
 passportConfig();
@@ -35,18 +43,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 //
 app.use(express.static(path.join(__dirname, 'public')));
 //session
-app.use(session({
-   secret: '1234DSFs@adf1234!@#$asd',
-   resave: false,
-   saveUninitialized: true,
-  //  store:new MySQLStore({
-  //    host:'localhost',
-  //    port:3306,
-  //    user:'root',
-  //    password:'konyang',
-  //    database:'test'
-  //  })
- }));
+
 //
 
 app.use('/', dappRouter);

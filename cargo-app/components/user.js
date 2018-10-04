@@ -147,9 +147,10 @@ module.exports = function(req,res){
         if(isAvailalbe(results, 1, "event_status", "VALID")) {
             // if(results && results[1] && results[1].event_status === 'VALID') {
             console.log('Successfully committed the change to the ledger by the peer');
-            res.send(tx_id.getTransactionID());
+            res.json({'tx_id' : tx_id.getTransactionID(), 'success' : true });
         } else {
             console.log('Transaction failed to be committed to the ledger due to ::'+results[1].event_status);
+            res.json({'success' : false });
         }
     }
 

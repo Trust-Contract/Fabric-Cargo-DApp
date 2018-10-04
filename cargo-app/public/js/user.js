@@ -14,6 +14,7 @@ app.controller('appController', function($scope, appFactory){
   $scope.login = function(){
 		appFactory.clogin($scope.logn, function(data){
 			$scope.login_rtn = data;
+			console.log("test");
 			$("#login_rtnval").show();
 		});
 	}
@@ -45,9 +46,11 @@ app.factory('appFactory', function($http){
 	var factory = {};
 
 	factory.clogin = function(data, callback){
-
+		console.log(data);
 		$http.post('/login/', data).success(function(output){
+			console.log(output);
 			callback(output)
+			window.location.href = 'http://localhost:8000';
 		});
 
 	}
@@ -56,7 +59,11 @@ app.factory('appFactory', function($http){
         // console.log(data);
         if(data.password === data.pw_confirm){
             $http.post('/register/', data).success(function(output){
-                callback(output)
+				console.log(output);
+				if(output.success === true){
+					callback(output)
+					window.location.href = 'http://localhost:8000';
+				}
             });
         }
 		

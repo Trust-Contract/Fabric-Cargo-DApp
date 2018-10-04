@@ -8,6 +8,7 @@ router.get('/', function(req, res, next) {
   });
   
 router.get('/login',(req, res, next) => {
+    // console.log("call login")
     res.render('login');
 });
 
@@ -16,10 +17,10 @@ router.get('/signup',(req, res, next) => {
 });
 
   
-//로그인처리
-router.post('/logon', (req, res) => {
- controller.loginuser(req,res);
-});
+// //로그인처리
+// router.post('/logon', (req, res) => {
+//  controller.loginuser(req,res);
+// });
 
 module.exports = router;
 
