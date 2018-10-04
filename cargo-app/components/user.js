@@ -21,7 +21,7 @@ module.exports = function(req,res){
             uname=req.body.uname;
     var flag = true;
     if(flag){
-        var userid=req.body.userid ,
+        var userid=req.body.userid ||  req.body.email,
         password=req.body.password,
         dcert=req.body.dcert || "000",
         bnum=req.body.bnum || "000",
@@ -88,7 +88,7 @@ module.exports = function(req,res){
 
         console.log('[mysql] member Insert success ');
         //fabric ca에 사용자 등록
-        cahelper.registerCaUser(userid,password,handler,errhandler);
+        cahelper.registerCaUser(userid,password,handler.bind(this, res),errhandler.bind(this, res));
         connection.end();
     });//connection query end
 }).catch((err)=>{
@@ -115,7 +115,7 @@ module.exports = function(req,res){
         const request = helper.getChaincodeRequest('cargo-app', tx_id, 'addPoint', 'mychannel', [key, point]); 
         // helper.transaction(request, txHandler, resHandler);
         helper.transaction(user,request, invokeHandler.bind(this, res));
-        res.json(result);
+        // res.json(result);
     }
 
     function errhandler(){
@@ -124,6 +124,32 @@ module.exports = function(req,res){
             data : "ca user register failed"
         };
         res.json(result);
+    }
+
+    function invokeHandler(res, results, tx_id) {
+        console.log('Send transaction promise and event listener promise have completed');
+        // check the results in the order the promises were added to the promise all list
+        function isAvailalbe(data, data_index, data_key, statement){
+            if(data  && data[data_index] && data[data_index][data_key] === statement){
+                return true;
+            }
+            return false;
+        }
+        if (isAvailalbe(results, 0, "status", "SUCCESS")) {
+            // if (results && results[0] && results[0].status === 'SUCCESS') {
+            console.log('Successfully sent transaction to the orderer.');
+            // res.send(tx_id.getTransactionID());
+        } else {
+            // console.error('Failed to order the transaction. Error code: ' + response.status);
+        }
+    
+        if(isAvailalbe(results, 1, "event_status", "VALID")) {
+            // if(results && results[1] && results[1].event_status === 'VALID') {
+            console.log('Successfully committed the change to the ledger by the peer');
+            res.send(tx_id.getTransactionID());
+        } else {
+            console.log('Transaction failed to be committed to the ledger due to ::'+results[1].event_status);
+        }
     }
 
 }

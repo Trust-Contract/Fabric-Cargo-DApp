@@ -12,7 +12,7 @@ var fabric_ca_client=null;
 var admin_user = null;
 var member_user = null;
 var store_path = path.join(os.homedir(), '.hfc-key-store');
-
+const fabric_ca ='http://192.168.99.20:7054';
 
 module.exports = (function(){
 
@@ -34,7 +34,7 @@ module.exports = (function(){
           fabric_client.setCryptoSuite(crypto_suite);
 
           // be sure to change the http to https when the CA is running TLS enabled
-          fabric_ca_client = new Fabric_CA_Client('http://192.168.99.100:7054', null , '', crypto_suite);
+          fabric_ca_client = new Fabric_CA_Client(fabric_ca, null , '', crypto_suite);
 
           // first check to see if the admin is already enrolled
           return fabric_client.getUserContext('admin', true);
@@ -48,19 +48,16 @@ module.exports = (function(){
 
         // at this point we should have the admin user
         // first need to register the user with the CA server
-        console.log(id+",,,"+password)
+        console.log("[user id]"+ id+ " [password]"+password)
         return fabric_ca_client.register({enrollmentID:id,enrollmentSecret:password, affiliation: 'org1.department1',role: 'client',maxEnrollments:9999}, admin_user);
-}).then((secret) =>{
-  handler();
-}).catch((err) => {
-  console.log(err);
-  errhandler();
-});
+})
+.then(handler)
+.catch(errhandler);
 
 }//helper.registerUser() _end
 
 cahelper.enrollCaUser = function(id,password,handler,errhandler){
-  fabric_client = null;
+  fabric_client = handlernull;
   fabric_ca_client = null;
   fabric_client = new Fabric_Client();
 
@@ -75,7 +72,7 @@ cahelper.enrollCaUser = function(id,password,handler,errhandler){
       crypto_suite.setCryptoKeyStore(crypto_store);
       fabric_client.setCryptoSuite(crypto_suite);
       // be sure to change the http to https when the CA is running TLS enabled
-      fabric_ca_client = new Fabric_CA_Client('http://192.168.99.100:7054', null , '',crypto_suite);
+      fabric_ca_client = new Fabric_CA_Client(fabric_ca, null , '',crypto_suite);
   return fabric_ca_client.enroll({enrollmentID: id, enrollmentSecret: password});
 }).then(function(enrollment){
   console.log("ca enroll user success")

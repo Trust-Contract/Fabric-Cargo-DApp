@@ -11,9 +11,9 @@ var member_user = null;
 var tx_id = null;
 
 var channel = fabric_client.newChannel('mychannel');
-var peer = fabric_client.newPeer('grpc://192.168.99.100:7051');
+var peer = fabric_client.newPeer('grpc://192.168.99.20:7051');
 channel.addPeer(peer);
-var order = fabric_client.newOrderer('grpc://192.168.99.100:7050')
+var order = fabric_client.newOrderer('grpc://192.168.99.20:7050')
 channel.addOrderer(order);
 
 

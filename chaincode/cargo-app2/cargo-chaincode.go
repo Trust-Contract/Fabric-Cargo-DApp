@@ -95,9 +95,6 @@ type CargoContract struct {
 	 // Extract the function and args from the transaction proposal
 	 fn, args := stub.GetFunctionAndParameters()
 
-	 logger.Info(stub.GetTxID())
-	 logger.Info(stub.GetChannelID())
-
 
 	 switch method := fn; method {
 		 case "initLedger":
