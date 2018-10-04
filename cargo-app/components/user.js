@@ -2,6 +2,7 @@ const mysql=require('mysql');
 const helper = require('./helper')();
 const cahelper =require('./cahelper')();
 const config = require('./dbconfig');
+
 module.exports = function(req,res){
 
     try{req.body = JSON.parse(Object.keys(req.body)[0])}catch(err){req.body = req.body}

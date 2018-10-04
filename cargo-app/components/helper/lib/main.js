@@ -1,19 +1,20 @@
 
-var Fabric_Client = require('fabric-client');
+const Fabric_Client = require('fabric-client');
 
 var fabric_client = new Fabric_Client();
 
 var path          = require('path');
-var os            = require('os');
-var store_path = path.join(os.homedir(), '.hfc-key-store');
+const os            = require('os');
+const store_path = path.join(os.homedir(), '.hfc-key-store');
 
 var member_user = null;  
 var tx_id = null;
 
+const fabric_config = require('../../fabric-config');
 var channel = fabric_client.newChannel('mychannel');
-var peer = fabric_client.newPeer('grpc://192.168.99.20:7051');
+var peer = fabric_client.newPeer(fabric_config.peer_nodes[0]);
 channel.addPeer(peer);
-var order = fabric_client.newOrderer('grpc://192.168.99.20:7050')
+var order = fabric_client.newOrderer(fabric_config.orderer_nodes[0])
 channel.addOrderer(order);
 
 
@@ -172,8 +173,10 @@ module.exports = (function(){
 			
 			// get an eventhub once the fabric client has a user assigned. The user
 			// is required bacause the event registration must be signed
-			let event_hub = fabric_client.newEventHub();
-			event_hub.setPeerAddr('grpc://192.168.99.100:7053');
+			// let event_hub = fabric_client.newEventHub();
+			// event_hub.setPeerAddr('grpc://192.168.99.20:7053');
+            let event_hub = fabric_client.newEventHub();
+            event_hub.setPeerAddr(fabric_config.event_nodes[0]);
 
 			// using resolve the promise so that result status may be processed
 			// under the then clause rather than having the catch clause process

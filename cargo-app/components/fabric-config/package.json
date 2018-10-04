@@ -1,0 +1,4 @@
+{
+    "name" : "fabric-config",
+    "main" : "./lib/main.js"
+}

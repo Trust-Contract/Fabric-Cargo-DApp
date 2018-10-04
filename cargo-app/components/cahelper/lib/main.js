@@ -1,18 +1,19 @@
 
-var Fabric_Client = require('fabric-client');
-var Fabric_CA_Client = require('fabric-ca-client');
+const Fabric_Client = require('fabric-client');
+const Fabric_CA_Client = require('fabric-ca-client');
 
-var path = require('path');
-var util = require('util');
-var os = require('os');
+const path = require('path');
+// var util = require('util');
+const os = require('os');
+const fabric_config = require('../../fabric-config');
 
 //
 var fabric_client=null;
 var fabric_ca_client=null;
 var admin_user = null;
-var member_user = null;
-var store_path = path.join(os.homedir(), '.hfc-key-store');
-const fabric_ca ='http://192.168.99.20:7054';
+// var member_user = null;
+const store_path = path.join(os.homedir(), '.hfc-key-store');
+const fabric_ca = fabric_config.ca_nodes[0];
 
 module.exports = (function(){
 
@@ -82,14 +83,11 @@ cahelper.enrollCaUser = function(id,password,handler,errhandler){
      cryptoContent: { privateKeyPEM: enrollment.key.toBytes(), signedCertPEM: enrollment.certificate }
   });
 }).then(function (user){
-  var m_user=user;
-  handler(m_user);
+  handler(user);
   return fabric_client.setUserContext(user);
 }).then(function (){
   console.log("complete(;)")
-}).catch(function (err){
- errhandler(err);
-});
+}).catch(errhandler);
 
 }
 //enrollcauser
