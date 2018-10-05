@@ -81,6 +81,7 @@ app.factory('appFactory', function($http){
 	}
 
 	factory.queryCargo = function(id, callback){
+		
     	$http.get('/get_cargo/'+id).success(function(output){
 			callback(output)
 		});

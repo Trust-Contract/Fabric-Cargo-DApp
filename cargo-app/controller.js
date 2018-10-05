@@ -51,33 +51,33 @@ var queryhandler = function(res, query_responses){
 }
 
 
-controller.prototype.get_all_cargo = function(req, res){
+// controller.prototype.get_all_cargo = function(req, res){
 
-	var tx_id = null;
-	var user = req.session.userid;
+// 	var tx_id = null;
+// 	var user = req.session.userid;
 	
-	const request = helper.getChaincodeRequest('cargo-app', tx_id, 'queryAllCargo', 'mychannel', ['all']); 
-	helper.query(user,request, handler);
+// 	const request = helper.getChaincodeRequest('cargo-app', tx_id, 'queryAllCargo', 'mychannel', ['all']); 
+// 	helper.query(user,request, handler);
 
-	function handler(query_responses){
-		// res.header('Cache-Control', 'no-cache, no-store, must-revalidate')
-		console.log("Query has completed, checking results");
-		// query_responses could have more than one  results if there multiple peers were used as targets
-		if (query_responses && query_responses.length == 1) {
-			if (query_responses[0] instanceof Error) {
-				console.error("error from query = ", query_responses[0]);
-			} else {
-				console.log(query_responses);
-				console.log(query_responses[0].toString());
-				console.log("Response is ", query_responses[0].toString());
-				res.json(JSON.parse(query_responses[0].toString()));
-			}
-		} else {
-			console.log("No payloads were returned from query");
-		}
-	}
+// 	function handler(query_responses){
+// 		// res.header('Cache-Control', 'no-cache, no-store, must-revalidate')
+// 		console.log("Query has completed, checking results");
+// 		// query_responses could have more than one  results if there multiple peers were used as targets
+// 		if (query_responses && query_responses.length == 1) {
+// 			if (query_responses[0] instanceof Error) {
+// 				console.error("error from query = ", query_responses[0]);
+// 			} else {
+// 				console.log(query_responses);
+// 				console.log(query_responses[0].toString());
+// 				console.log("Response is ", query_responses[0].toString());
+// 				res.json(JSON.parse(query_responses[0].toString()));
+// 			}
+// 		} else {
+// 			console.log("No payloads were returned from query");
+// 		}
+// 	}
 
-}
+// }
 
 controller.prototype.get_cargo = function(req, res){
 	var tx_id = null;
