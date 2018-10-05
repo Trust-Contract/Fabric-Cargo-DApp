@@ -22,8 +22,8 @@ const flash = require('connect-flash');
 //
 app.use(session({
   secret: '1234DSFs@adf1234!@#$asd',
-  resave: false,
-  saveUninitialized: true,
+  resave: true,
+  saveUninitialized: false,
   // store:new MySQLStore(dbconfig)
 }));
 app.use(flash());

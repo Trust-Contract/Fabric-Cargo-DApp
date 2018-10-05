@@ -97,31 +97,33 @@ type CargoContract struct {
 
 
 	 switch method := fn; method {
-		 case "initLedger":
-			 return t.initLedger(stub)
-		 case "createContract":
-			 return t.createContract(stub, args)
-		 case "queryCargo" :
-			  return t.queryCargo(stub, args)
-     case "signContract":
-   			 return t.signContract(stub, args)
-     case "cancelContract":
-         return t.cancelContract(stub,args)
-     case "completeContract":
-         return t.completeContract(stub,args)
-		 case "queryPoint" :
-			   return t.queryPoint(stub, args)
-		 case "addPoint":
-			   return t.addPoint(stub, args)
-		 case "subtractPoint":
-			   return t.subtractPoint(stub, args)
-     case "createUser":
-         return t.createUser(stub,args)
-     case "queryMylist":
-         return t.queryMylist(stub,args)
-		 default :
-		     return shim.Success([]byte(nil))
-	 }
+			case "initLedger":
+				return t.initLedger(stub)
+			case "createContract":
+				return t.createContract(stub, args)
+			case "queryCargo" :
+				return t.queryCargo(stub, args)
+			case "queryAllCargo" :
+				return t.queryCargo(stub, args)
+			case "signContract":
+					return t.signContract(stub, args)
+			case "cancelContract":
+				return t.cancelContract(stub,args)
+			case "completeContract":
+				return t.completeContract(stub,args)
+			case "queryPoint" :
+				return t.queryPoint(stub, args)
+			case "addPoint":
+				return t.addPoint(stub, args)
+			case "subtractPoint":
+				return t.subtractPoint(stub, args)
+			case "createUser":
+				return t.createUser(stub,args)
+			case "queryMylist":
+				return t.queryMylist(stub,args)
+			default :
+				return shim.Success([]byte(nil))
+	}
 
  }
 

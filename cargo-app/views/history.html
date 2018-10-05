@@ -286,7 +286,7 @@
                     <!-- Search Filter End -->
                     <!-- Tracking History -->
                         <div class="block-content">
-        <div class="table-responsive">
+        <div class="table-responsive" ng-app="application" ng-controller="appController" data-ng-init="queryAllCragos()">
             <table class="table table-clean-paddings margin-bottom-0">
                 <thead>
                     <tr>
@@ -307,7 +307,19 @@
                             <td>New York</td>
                             <td><span class="label label-success label-transparent">Delivered</span></td>
                     </tr>
-                    <tr>
+                    <tr ng-repeat="cargo in all_cargo">
+                      <td>
+                        <div class="contact-container"><a href="#">{{cargo.Key}}</a><span>{{cargo.date}}</span></div>
+                      </td>
+                      <td>{{cargo.Registrant}}</td>
+                      <td>{{cargo.weight}}</td>
+                      <td>{{cargo.distance}}</td>
+                      <td>{{cargo.money}}</td>
+                      <td>{{cargo.Status}}</td>
+                      <td>{{cargo.Driver}}</td>
+                      <td><span class="label label-success label-transparent">{{cargo.Status}}</span></td>
+                    </tr>
+                    <!-- <tr>
                         <td>
                            <div class="contact-container"><a href="#">Muhammad Umair</a> <span>on Aug 19, 2016</span></div>
                         </td>
@@ -343,7 +355,7 @@
                             <td>New York</td>
                             <td><span class="label label-success label-transparent">Delivered</span></td>
                     </tr>
-                    
+                     -->
              
                 </tbody>
             </table>
@@ -472,6 +484,8 @@
     <script src="js/jquery-migrate.min.js"></script>
     <!-- Bootstrap Core Css  -->
     <script src="js/bootstrap.min.js"></script>
+    <!-- angular  -->
+    <script src="js/angular.min.js"></script>
     <!-- Dropdown Hover  -->
      <script src="js/bootstrap-dropdownhover.min.js"></script><!-- Jquery Easing -->
     <script type="text/javascript" src="js/easing.js"></script>
@@ -494,6 +508,7 @@
     <script src="js/theia-sticky-sidebar.js"></script>
     <!-- Template Core JS -->
     <script src="js/custom.js"></script>
+    <script src="js/core.js"></script>
  <!-- =-=-=-=-=-=-= Quote Modal =-=-=-=-=-=-= --> 
     <div class="modal fade " id="request-quote" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">

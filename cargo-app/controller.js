@@ -38,6 +38,9 @@ var queryhandler = function(res, query_responses){
 				res.send("ERROR")
 				// 에러처리 귀찮...
 			} else {
+				console.log("test");
+				console.log(query_responses[0].toString());
+				console.log(query_responses);
 				console.log("Response is ", query_responses[0].toString());
 				res.send(query_responses[0].toString())
 			}
@@ -64,6 +67,8 @@ controller.prototype.get_all_cargo = function(req, res){
 			if (query_responses[0] instanceof Error) {
 				console.error("error from query = ", query_responses[0]);
 			} else {
+				console.log(query_responses);
+				console.log(query_responses[0].toString());
 				console.log("Response is ", query_responses[0].toString());
 				res.json(JSON.parse(query_responses[0].toString()));
 			}

@@ -87,8 +87,13 @@ app.factory('appFactory', function($http){
 	}
 
 	factory.recordCargo = function(data, callback){
-
-
+		data.Registrant = "park"
+		data.Driver = 'park';
+		data.Status = 1;
+		data.distance = 5;
+		data.money = 1000;
+		data.date =  (new Date()).toISOString();
+		
 		$http.post('/add_cargo/', data).success(function(output){
 			callback(output)
 		});

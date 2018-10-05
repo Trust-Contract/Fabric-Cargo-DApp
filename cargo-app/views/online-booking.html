@@ -213,8 +213,8 @@
                                 <ul class="dropdown-menu">
                                     <li><a href="index-5.html">Tracking Landing Page</a> </li>
                                     <li><a href="index-4.html">Tracking Classic Page </a> </li>
-                                    <li><a href="history.html">Tracking Order History</a> </li>
-                                    <li><a href="online-booking.html">Cargo Booking</a> </li>
+                                    <li><a href="/history">Tracking Order History</a> </li>
+                                    <li><a href="/online-booking">Cargo Booking</a> </li>
                                 </ul>
                             </li>
                         </ul>
@@ -256,7 +256,7 @@
     <section id="contact-us" class="section-padding-70 contact-bg">
         <div class="container">
             <!-- Row -->
-            <div class="row">
+            <div class="row" ng-app="application" ng-controller="appController">
                 <div class="col-md-7  ">
                     <div class="about-title">
                         <h2>Place Booking Online</h2>
@@ -284,7 +284,7 @@
                                 <!-- Email -->
                                 <div class="form-group">
                                     <label>Commodity/Cargo Name:</label>
-                                    <input type="text" placeholder="Commodity/Cargo Name:" class="form-control" required>
+                                    <input type="text" placeholder="Commodity/Cargo Name:" class="form-control" ng-model="cargo.Key" required>
                                 </div>
                             </div>
                             <!-- End col-md-12 -->
@@ -292,7 +292,7 @@
                                 <!-- Email -->
                                 <div class="form-group">
                                     <label>Total Estimated Weight:</label>
-                                    <input type="text" placeholder="Total Estimated Weight" class="form-control" required>
+                                    <input type="text" placeholder="Total Estimated Weight" class="form-control" ng-model="cargo.weight" required>
                                 </div>
                             </div>
                             <!-- End col-sm-6 -->
@@ -837,7 +837,7 @@
                                 <!-- Email -->
                                 <div class="form-group">
                                     <label>Pick up Date:</label>
-                                    <div class='input-group timepicker' id='datetimepicker1'>
+                                    <div class='input-group timepicker' id='datetimepicker1' ng-model="cargo.date">
                                     <input type='text' class="form-control" />
                                     <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>
@@ -854,7 +854,7 @@
                             </div>
                             <!-- End col-sm-12 -->
                             <div class="col-sm-12 col-md-12 col-xs-12 clearfix">
-                                <button type="submit" id="yes" class="btn btn-primary btn-sm">Book Now</button>
+                                <button type="submit" id="yes" class="btn btn-primary btn-sm" ng-click="recordCargo()">Book Now</button>
                                 <img id="loader" alt="" src="images/loader.gif" class="loader">
                             </div>
                             <!-- End col-sm-6 -->
@@ -986,6 +986,8 @@
     <!-- =-=-=-=-=-=-= JQUERY =-=-=-=-=-=-= -->
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery-migrate.min.js"></script>
+
+    <script src="js/angular.min.js"></script>
     <!-- Bootstrap Core Css  -->
     <script src="js/bootstrap.min.js"></script>
     <!-- Dropdown Hover  -->
@@ -1001,7 +1003,7 @@
     <script src="js/jquery.shuffle.min.js"></script>
     <!-- Carousel Slider  -->
     <script src="js/carousel.min.js"></script>
-    
+    <script src="js/core.js"></script>
     <!--Style Switcher -->
     <script src="js/color-switcher.js"></script>
     <!-- Gallery Magnify  -->

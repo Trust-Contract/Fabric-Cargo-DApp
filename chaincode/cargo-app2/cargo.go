@@ -4,7 +4,6 @@
  import (
 	 "fmt"
  	"time"
-
      "bytes"
 	 "encoding/json"
 	 "strconv"
@@ -13,11 +12,11 @@
  )
 
 
- 	/********************************************************
+ /********************************************************
 	 args[0] - 날짜 YYYYMMDD
 	 특정 화물 계약을 조회하는 메소드
-   매개변수로 전달된 날짜부터 현재날짜까지 운송의뢰들을 조회하는 메소드
-	**********************************************************/
+   	 매개변수로 전달된 날짜부터 현재날짜까지 운송의뢰들을 조회하는 메소드
+ **********************************************************/
 //peer chaincode query -n cargo-app -c '{"Args":["queryCargo", "CARGOS20180606"]}' -C mychannel
  func (s *SmartContract) queryCargo(stub shim.ChaincodeStubInterface, args []string) peer.Response {
 
@@ -181,7 +180,6 @@
  signContract - 운전자가 화물운송의뢰를 계약하는 메소드
  args[0] == Key
  args[1] == 운전자아이디
-
  ***********************************/
 
  func (t *SmartContract) signContract(stub shim.ChaincodeStubInterface, args []string) peer.Response {
