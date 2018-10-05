@@ -1,6 +1,6 @@
 const mysql=require('mysql');
 const helper = require('./helper')();
-const cahelper =require('./cahelper')();
+const cahelper =require('./cahelper');
 const config = require('./dbconfig');
 
 module.exports = function(req,res){

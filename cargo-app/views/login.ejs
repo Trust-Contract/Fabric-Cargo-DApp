@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <% include ./components/head %>
+</head>
+
+<body >
+    <!-- =-=-=-=-=-=-= PRELOADER =-=-=-=-=-=-= -->
+    <div class="preloader"><span class="preloader-gif"></span></div>
+
+    <!-- =-=-=-=-=-=-= Color Switcher =-=-=-=-=-=-= -->
+    <div class="color-switcher" id="choose_color"> <a href="#." class="picker_close"><i class="fa fa-gear"></i></a>
+        <h5>STYLE SWITCHER</h5>
+        <div class="theme-colours">
+            <p> Choose Colour style </p>
+            <ul>
+                <li>
+                    <a href="#." class="defualt" id="defualt"></a>
+                </li>
+                <li>
+                    <a href="#." class="red" id="red"></a>
+                </li>
+                <li>
+                    <a href="#." class="green" id="green"></a>
+                </li>
+                <li>
+                    <a href="#." class="orange" id="orange"></a>
+                </li>
+                <li>
+                    <a href="#." class="purple" id="purple"></a>
+                </li>
+                <li>
+                    <a href="#." class="yellow" id="yellow"></a>
+                </li>
+                
+            </ul>
+        </div>
+        <div class="clr"> </div>
+    </div>
+
+  <!-- =-=-=-=-=-=-= HEADER =-=-=-=-=-=-= -->
+  <% include ./components/header %>
+  <script>
+      if(<%= session %>){
+          document.getElementById('login').style.visibility = "hidden";
+          document.getElementById('signup').style.visibility = "hidden";
+          document.getElementById('profile').style.visibility = "visible";
+      }else{
+          document.getElementById('login').style.visibility = "visible";
+          document.getElementById('signup').style.visibility = "visible";
+          document.getElementById('profile').style.visibility = "hidden";
+      }
+  </script>
+<!-- =-=-=-=-=-=-= HEADER END =-=-=-=-=-=-= -->
+
+
+
+    <!-- =-=-=-=-=-=-= PAGE BREADCRUMB =-=-=-=-=-=-= -->
+    <section class="breadcrumbs-area parallex">
+        <div class="container">
+            <div class="row">
+                <div class="page-title">
+                    <div class="col-sm-12 col-md-6 page-heading text-left">
+                        <h3>prove your identity</h3>
+                        <h2>Login Your Account</h2>
+                    </div>
+                    <div class="col-sm-12 col-md-6 text-right">
+                        <ul class="breadcrumbs">
+                            <li><a href="#">home</a></li>
+                            <li><a href="#">pages</a></li>
+                            <li><a href="#">sign in</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- =-=-=-=-=-=-= PAGE BREADCRUMB END =-=-=-=-=-=-= -->
+
+
+    <!-- =-=-=-=-=-=-= Sign In Section =-=-=-=-=-=-= -->
+
+    <section class="section-padding-70">
+        <div class="container">
+        <div class="row">
+				<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2"  ng-app="loginapp" ng-controller="appController">
+					<form class="registration" >
+						<div class="box-header">
+							<h2>Login to your account</h2>
+						</div>
+
+						<label>User Name</label>
+						<input type="text" class="form-control margin-bottom-20" ng-model="logn.userid">
+						
+						<label>Password <span class="color-red">*</span></label>
+						<input type="password" class="form-control margin-bottom-20" ng-model="logn.password">
+
+						<div class="row">
+							<div class="col-md-8 col-sm-8 col-xs-12">
+                            <div class="checkbox checkbox-default">
+                                <input type="checkbox" id="checkbox2" checked="">
+                                <label for="checkbox2">
+                                    Stay signed in
+                                </label>
+                            </div>
+							</div>
+							<div class="col-md-4 row col-sm-4 col-xs-12 text-right">
+								<button type="submit" class="btn btn-primary btn-sm" ng-click="login()">Login</button>
+							</div>
+						</div>
+                        <hr>
+                        <h4>Forget your Password ?</h4>
+                        <p>no worries, <a href="#" class="color-green">click here</a> to reset your password.</p>
+					</form>
+				</div>
+			</div>
+        </div>
+    </section>
+
+    <!-- =-=-=-=-=-=-= Section End =-=-=-=-=-=-= -->
+
+    <!-- =-=-=-=-=-=-= FOOTER =-=-=-=-=-=-= -->
+    <footer class="footer-area">
+        <% include ./components/footer %>
+    </footer>
+	
+	<!-- =-=-=-=-=-=-= Quote Modal =-=-=-=-=-=-= -->
+	<div data-target="#request-quote" data-toggle="modal" class="quote-button hidden-xs">
+		  <a class="btn btn-primary" href="javascript:void(0)"><i class="fa fa-envelope"></i></a>
+	</div>
+	<!-- =-=-=-=-=-=-= Quote Modal End =-=-=-=-=-=-= -->
+
+    <% include ./components/script %>
+    <script src="js/user.js"></script>
+   <!-- =-=-=-=-=-=-= Quote Modal =-=-=-=-=-=-= --> 
+   <% include ./components/quotemodel  %>
+   <!-- =-=-=-=-=-=-= Quote Modal End =-=-=-=-=-=-= -->
+</body>
+
+</html>

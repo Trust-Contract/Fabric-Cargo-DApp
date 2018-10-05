@@ -31,8 +31,8 @@ app.use(passport.initialize()); // passport 구동
 app.use(passport.session()); // 세션 연결
 passportConfig();
 
-app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'html');
+app.engine('ejs', require('ejs').renderFile);
+app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

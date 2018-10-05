@@ -15,7 +15,6 @@ var admin_user = null;
 const store_path = path.join(os.homedir(), '.hfc-key-store');
 const fabric_ca = fabric_config.ca_nodes[0];
 
-module.exports = (function(){
 
     var cahelper = {};
 
@@ -58,39 +57,39 @@ module.exports = (function(){
 }//helper.registerUser() _end
 
 cahelper.enrollCaUser = function(id,password,handler,errhandler){
-//   fabric_client = null;
-  fabric_ca_client = null;
-  fabric_client = new Fabric_Client();
+    //   fabric_client = null;
+    fabric_ca_client = null;
+    fabric_client = new Fabric_Client();
 
-  return Fabric_Client.newDefaultKeyValueStore({ path: store_path
-  }).then((state_store) => {
-      // assign the store to the fabric client
-      fabric_client.setStateStore(state_store);
-      var crypto_suite = Fabric_Client.newCryptoSuite();
-      // use the same location for the state store (where the users' certificate are kept)
-      // and the crypto store (where the users' keys are kept)
-      var crypto_store = Fabric_Client.newCryptoKeyStore({path: store_path});
-      crypto_suite.setCryptoKeyStore(crypto_store);
-      fabric_client.setCryptoSuite(crypto_suite);
-      // be sure to change the http to https when the CA is running TLS enabled
-      fabric_ca_client = new Fabric_CA_Client(fabric_ca, null , '',crypto_suite);
-  return fabric_ca_client.enroll({enrollmentID: id, enrollmentSecret: password});
-}).then(function(enrollment){
-  console.log("ca enroll user success")
-  return fabric_client.createUser(
-     {username: id,
-     mspid: 'Org1MSP',
-     cryptoContent: { privateKeyPEM: enrollment.key.toBytes(), signedCertPEM: enrollment.certificate }
-  });
-}).then(function (user){
-  fabric_client.setUserContext(user);
-  
-  return handler(user);
-}).then(function (){
-  console.log("complete(;)")
-}).catch(errhandler);
-
+    return Fabric_Client.newDefaultKeyValueStore({ path: store_path
+    }).then((state_store) => {
+        // assign the store to the fabric client
+        fabric_client.setStateStore(state_store);
+        var crypto_suite = Fabric_Client.newCryptoSuite();
+        // use the same location for the state store (where the users' certificate are kept)
+        // and the crypto store (where the users' keys are kept)
+        var crypto_store = Fabric_Client.newCryptoKeyStore({path: store_path});
+        crypto_suite.setCryptoKeyStore(crypto_store);
+        fabric_client.setCryptoSuite(crypto_suite);
+        // be sure to change the http to https when the CA is running TLS enabled
+        fabric_ca_client = new Fabric_CA_Client(fabric_ca, null , '',crypto_suite);
+    return fabric_ca_client.enroll({enrollmentID: id, enrollmentSecret: password});
+    }).then(function(enrollment){
+    console.log("ca enroll user success")
+    return fabric_client.createUser(
+        {username: id,
+        mspid: 'Org1MSP',
+        cryptoContent: { privateKeyPEM: enrollment.key.toBytes(), signedCertPEM: enrollment.certificate }
+    });
+    }).then(function (user){
+    fabric_client.setUserContext(user);
+    
+    return handler(user);
+    }).then(function (){
+    console.log("complete(;)")
+    }).catch(errhandler);
 }
 //enrollcauser
-    return cahelper;
-});
+
+module.exports = cahelper;
+

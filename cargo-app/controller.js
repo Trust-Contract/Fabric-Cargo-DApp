@@ -1,6 +1,6 @@
 const mysql=require('mysql');
 const helper = require('./components/helper')();
-const cahelper =require('./components/cahelper')();
+const cahelper =require('./components/cahelper');
 // const config = require('./config');
 
 var controller = function(){};
@@ -166,125 +166,6 @@ controller.prototype.subtract_point = function(req, res){
 
 }
 
-// controller.prototype.registeruser = function(req,res){
-
-// 		try{req.body = JSON.parse(Object.keys(req.body)[0])}catch(err){req.body = req.body}
-// 		console.log(req.body);
-// 		console.log('start register User');
-// 		var userid=req.body.userid,
-// 		    	password=req.body.password,
-// 				dcert=req.body.dcert,
-// 				bnum=req.body.bnum,
-// 				first_name =req.body.first_name,
-// 				last_name=req.body.last_name,
-// 				email=req.body.email,
-// 				phone=req.body.phone,
-// 				tel=req.body.tel,
-// 				cnum=req.body.cnum,
-// 				anum=req.body.anum,
-// 				uname=req.body.uname;
-// 				console.log(userid);
-// 	  if(userid.trim()=="" && password.trim()=="" ){
-// 			var result = {
-// 				data:"[fail] arguments error"
-// 			};
-// 			res.send(result)
-// 	  }
-// 		// if(userid!="" && password!="" && dcert!="" && bnum!="" && phone!="" && tel!="" && cnum!="" && anum!="" && uname!=""){
-//     //mysql 회원db에 회원등록
-
-// 		var connection = mysql.createConnection(config);
-
-//   	var member = {
-//      'id':userid,
-//      'pw':password,
-//      'dcert':dcert,
-// 		 'bnum':bnum,
-// 		 'phone':phone,
-// 		 'tel':tel,
-// 		 'cnum':cnum,
-// 		 'anum':anum,
-// 		 'uname':uname
-// 	  };
-
-// 		connection.connect();
-// 		new Promise(function(resolve,reject){
-// 		var dcheck=id_check(connection,userid,resolve,reject);
-// }).then(function(){
-// 	//resolve호출시 (아이디 중복 없음)
-// 	//mysql member Insert
-// 	connection.query('INSERT INTO users set ?',member ,function(err, rows,fields){
-
-// 	if(err) throw err;
-
-// 	console.log('[mysql] member Insert success ');
-// 	//fabric ca에 사용자 등록
-// 	cahelper.registerCaUser(userid,password,handler,errhandler);
-// 	connection.end();
-// 	});//connection query end
-// },function(){
-// 	//reject호출시 (아이디 중복)
-// 	console.log('[fail] userid dup');
-// 	var result = {
-// 		data : "[fail] userid dup"
-// 	};
-// 	res.send(result);
-// 	connection.end();
-// }).catch((err)=>{
-// 	var result = {
-// 		data : "error"
-// 	};
-// 	console.log("error");
-// 	res.send(result);
-// });
-
-//     // }else{
-//     //  var result = {
-// 	// 	 data:"[fail] arguments error"
-// 	//  };
-// 	// 		res.send(result)
-//     // }
-
-// 		function handler(){
-// 			console.log("ca user register complete");
-// 			var result = {
-// 				data:"ca user register complete"
-// 			};
-// 			var key = userid;
-// 	            var point = "1000";
-// 		        var tx_id;
-// 	        	var user = "admin";
-//              	const request = helper.getChaincodeRequest('cargo-app', tx_id, 'addPoint', 'mychannel', [key, point]); 
-// 	// helper.transaction(request, txHandler, resHandler);
-// 	helper.transaction(user,request, invokeHandler.bind(this, res));
-// 			res.send(result);
-// 		}
-
-// 		function errhandler(){
-// 			console.log("ca user register failed");
-// 			var result = {
-// 				data : "ca user register failed"
-// 			};
-// 			res.send(result);
-// 		}
-
-// 		function id_check(conn,userid,resolve,reject){
-// 			console.log("idcheck start")
-// 			conn.query("SELECT * FROM users WHERE id='"+userid+"'",function(err,rows,fields){
-// 				if(err) throw err;
-
-//         var dup = rows[0];
-//         if(dup!=undefined){
-// 					console.log('double-check fail');
-// 					reject();
-//         }else{
-// 				console.log('double-check clear');
-// 				  resolve();
-// 			  }
-// 			});
-// 		}
-
-// 	}
 var dbconfig = require('./components/dbconfig');
 
 controller.prototype.loginuser = function(req,res){
@@ -299,33 +180,33 @@ controller.prototype.loginuser = function(req,res){
 		conn.query("SELECT pw FROM users WHERE id='"+userid+"'",function(err,rows,fields){
 			if(err) throw err;
 
-			if(rows[0]!=undefined){
-        if(password==rows[0].pw){
-					console.log("auth success");
-					cahelper.enrollCaUser(userid,password,handler,errhandler);
-				}else{
-					console.log("auth fail");
-					var result={
-						data:"fail"
-					}
-					res.send(result);
-				}
-			}else{
+			if(rows[0]===undefined){
 				var result={
 					data:"fail"
 				}
 				console.log("faile user not found");
 				res.send(result);
 			}
+
+			if(password==rows[0].pw){
+				console.log("auth success");
+				cahelper.enrollCaUser(userid,password,handler,errhandler);
+			}else{
+				console.log("auth fail");
+				var result={
+					data:"fail"
+				}
+				res.send(result);
+			}
 		});
 		conn.end();
-	 }else{
-		 console.log("[fail] arguments error");
-		 var result={
-			 data:"fail"
-		 }
-			res.send(result);
-   }
+			}else{
+				console.log("[fail] arguments error");
+				var result={
+					data:"fail"
+				}
+					res.send(result);
+		}
 
 		function handler(user){
 			console.log("handler");
@@ -335,8 +216,8 @@ controller.prototype.loginuser = function(req,res){
 			var result = {
 				data:"user login success"
 			};
-			res.send(result);
-			// return res.redirect("/");
+			// res.send(result);
+			res.redirect("/");
 		}
 
 		function errhandler(err){
@@ -344,7 +225,8 @@ controller.prototype.loginuser = function(req,res){
 			var result={
 				data:err
 			}
-			res.send(result);
+			// res.send(result);
+			return res.redirect("/login");
 		}
 	}//loginuser end
 

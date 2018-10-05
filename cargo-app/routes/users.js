@@ -29,11 +29,12 @@ router.get('/logout',(req,res) => {
               if(err){
                   console.log(err);
               }else{
-				  console.log("logout success");
-				  var result={
-					  data:"logout success"
-				  }
-                  res.send(result);
+				  // console.log("logout success");
+				  // var result={
+					//   data:"logout success"
+				  // }
+                  // res.send(result);
+                  res.redirect('/');
               }
           })
   }else{

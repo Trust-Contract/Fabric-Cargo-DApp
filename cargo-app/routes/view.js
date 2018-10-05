@@ -4,12 +4,19 @@ var controller = require('../controller.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('index');
+    if(req.session.userid){
+        res.render('index', { session : true});
+    }else{
+        res.render('index', { session : false});
+    }
   });
   
 router.get('/login',(req, res, next) => {
-    // console.log("call login")
-    res.render('login');
+    if(req.session.userid){
+        res.render('login', { session : true});
+    }else{
+        res.render('login', { session : false});
+    }
 });
 
 router.get('/signup',(req, res, next) => {
@@ -22,7 +29,11 @@ router.get('/history',(req, res, next) => {
 
 
 router.get('/online-booking',(req, res, next) => {
-    res.render('online-booking');
+    if(req.session.userid){
+        res.render('online-booking', { session : true});
+    }else{
+        res.redirect('/');
+    }
 });
 
   
