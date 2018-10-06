@@ -81,12 +81,15 @@ var queryhandler = function(res, query_responses){
 
 controller.prototype.get_cargo = function(req, res){
 	var tx_id = null;
-	var key = req.params.id
-	var user = req.session.userid;
+	var key = "CARGO" + new Date().toISOString().slice(0,10).replace(/-/g,"");
+	// var key = req.params.id
+	var user = "redtree0";
+	// var user = req.session.userid;
 
-	const request = helper.getChaincodeRequest('cargo-app', tx_id, 'queryCargo', 'mychannel', [key]); 
+	const request = helper.getChaincodeRequest('cargo-app', tx_id, 'queryMylist', 'mychannel', [user]); 
+	// const request = helper.getChaincodeRequest('cargo-app', tx_id, 'queryCargo', 'mychannel', [key]); 
 
-	helper.query(user,request, queryhandler.bind(this, res));
+	helper.query("e",request, queryhandler.bind(this, res));
 
 }
 
@@ -95,19 +98,20 @@ controller.prototype.add_cargo = function(req, res){
 	
 		try{req.body = JSON.parse(Object.keys(req.body)[0])}catch(err){req.body = req.body}
 		// console.log(req.body);
-		var key = "CARGO" + (new Date().toISOString());
+		var key =  (new Date().toISOString().slice(0,10).replace(/-/g,""));
+		console.log(key);
 		// var key = req.body.Key;
-		var weight = req.body.weight;
+		var weight = String(req.body.weight);
 		var registrant = req.body.Registrant;
         var driver = req.body.Driver;
-        var date = req.body.date;
-		var status = req.body.Status;
+        var date = (req.body.date).slice(0,10);
+		var status = "YET";
 		var distance = req.body.distance;
 		var money = req.body.money;
 		var tx_id = null;
 		var user = req.session.userid;
 	
-		const request = helper.getChaincodeRequest('cargo-app', tx_id, 'createContract', 'mychannel', [key, weight, distance, money, date, registrant, driver, status]); 
+		const request = helper.getChaincodeRequest('cargo-app', tx_id, 'createContract', 'mychannel', [key, weight, distance, money, date, registrant, driver,registrant, status]); 
 		// helper.transaction(request, txHandler, resHandler);
 		helper.transaction(user,request, invokeHandler.bind(this, res));
 }

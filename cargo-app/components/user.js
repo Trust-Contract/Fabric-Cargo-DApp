@@ -119,7 +119,8 @@ module.exports = function(req,res){
         // res.json(result);
     }
 
-    function errhandler(){
+    function errhandler(res, error){
+        console.log(error);
         console.log("ca user register failed");
         var result = {
             data : "ca user register failed"

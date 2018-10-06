@@ -20,11 +20,19 @@ router.get('/login',(req, res, next) => {
 });
 
 router.get('/signup',(req, res, next) => {
-    res.render('sign-up');
+    if(req.session.userid){
+        res.render('sign-up', { session : true});
+    }else{
+        res.render('sign-up', { session : false});
+    }
 });
 
 router.get('/history',(req, res, next) => {
-    res.render('history');
+    if(req.session.userid){
+         res.render('history', { session : true});
+    }else{
+        res.redirect('/');
+    }
 });
 
 
