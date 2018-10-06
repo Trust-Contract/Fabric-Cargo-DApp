@@ -36,7 +36,16 @@ router.get('/online-booking',(req, res, next) => {
     }
 });
 
-  
+
+router.get('/standard-fare',(req, res, next) => {
+    if(req.session.userid){
+        res.render('standard-fare', { session : true});
+    }else{
+        res.redirect('/');
+    }
+});
+
+
 // //로그인처리
 // router.post('/logon', (req, res) => {
 //  controller.loginuser(req,res);

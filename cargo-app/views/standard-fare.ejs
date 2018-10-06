@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <% include ./components/head %>
+    </head>
+
+<body>
+    <!-- =-=-=-=-=-=-= PRELOADER =-=-=-=-=-=-= -->
+    <div class="preloader"><span class="preloader-gif"></span></div>
+
+    <!-- =-=-=-=-=-=-= Color Switcher =-=-=-=-=-=-= -->
+	
+  <!-- =-=-=-=-=-=-= HEADER =-=-=-=-=-=-= -->
+  <% include ./components/header %>
+  <script>
+      if(<%= session %>){
+          document.getElementById('login').style.visibility = "hidden";
+          document.getElementById('signup').style.visibility = "hidden";
+          document.getElementById('profile').style.visibility = "visible";
+      }else{
+          document.getElementById('login').style.visibility = "visible";
+          document.getElementById('signup').style.visibility = "visible";
+          document.getElementById('profile').style.visibility = "hidden";
+      }
+  </script>
+<!-- =-=-=-=-=-=-= HEADER END =-=-=-=-=-=-= -->
+
+
+    <!-- =-=-=-=-=-=-= PAGE BREADCRUMB =-=-=-=-=-=-= -->
+    <section class="breadcrumbs-area parallex">
+        <div class="container">
+            <div class="row">
+                <div class="page-title">
+                    <div class="col-sm-12 col-md-6 page-heading text-left">
+                        <h3>Trusted Contract</h3>
+                        <h2>Standard fare</h2>
+                    </div>
+                    <div class="col-sm-12 col-md-6 text-right">
+                        <ul class="breadcrumbs">
+                            <li><a href="#">home</a></li>
+                            <li><a href="#">Cargo Tracking</a></li>
+                            <li><a href="#">Standard Fare</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- =-=-=-=-=-=-= PAGE BREADCRUMB END =-=-=-=-=-=-= -->
+
+    <!-- =-=-=-=-=-=-= Tracking History =-=-=-=-=-=-= -->
+	<section id="contact-us" class="section-padding-70 contact-bg">
+	<div class="container">
+<!-- 내용 출력 -->
+<div>
+            <span id="writeContents" style="font-size: 12px;"><style type="text/css">
+.tbl_st01 { width:100%;  padding:10px; background-color:#fff; text-align:center;  }
+.tbl_st01 thead td { height:30px; background:#264a8a; color:#fff; padding:10px; border:#e8e8e8 1 solid!important;}
+.tbl_st01 tbody tr { height:30px; border-bottom:#cecece 1px solid; border:#e8e8e8 1 solid;  }
+.tbl_st01 tbody td { background-color:#fff; padding:10px; color:#616161;  border:#e8e8e8 1 solid!important;}
+.taleft { text-align:left;}
+.hprice { line-height:2.7em;}
+h3 {color:#264a8a; line-height:2.7em; font-size:20px; font-weight:bold;}
+h4 {color:#264a8a; line-height:1.5em; font-size:10px; font-weight:bold;}
+</style>
+<h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Standard fare from Seoul / Gyeonggi area</font></font></h3>
+
+<h4><p align="right"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&lt;Unit: thousand won&gt;</font></font></p></h4>
+<table class="tbl_st01" cellspacing="0" cellpadding="0">
+
+    <colgroup>
+        <col widtd="40PX;">
+        <col>
+        <col>
+        <col>
+        <col>
+        <col>
+        <col>
+        <col>
+        <col>
+    </colgroup>
+	<thead>
+        <tr>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Local model</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Basic fares</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1 ton</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2.5 tons</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">5 tons</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">11 tons</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">18 tons</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">25 tons</font></font></td>
+          <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Churrera</font></font></td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Seoul</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">35</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">40</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">60</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">100</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">140</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">190</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">200</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">200</font></font></td>
+        </tr>
+        <tr>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Incheon International Airport</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">75</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">90</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">110</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">130</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">170</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">220</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">230</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">260</font></font></td>
+        </tr>
+        <tr>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Gimpo International Airport</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">50</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">60</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">80</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">110</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">160</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">190</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">220</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">250</font></font></td>
+        </tr>
+	</tbody>
+</table>
+<br><br>
+<table class="tbl_st01" cellspacing="0" cellpadding="0">
+    <thead>
+        <tr>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Area</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Station</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1 ton</font></font></td>
+            
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2,5 ton</font></font></td>
+            
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">5 tons</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">5 ton axes</font></font></td>
+            
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">11 tons</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">18 tons</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">25 tons</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Churrera</font></font></td>
+        </tr>
+    </thead>
+    <tbody>
+<tr>
+<td class="city" rowspan="2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Seoul</font></font></td>
+<td class="taleft"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">City: 10km or less, </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(East → East side 1 tonne: 35)</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">40</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">70</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">90</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">110</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">130</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">160</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">180</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">230</font></font></td>
+</tr>
+<tr>
+<td class="taleft"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Downtown: more than 10km</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">50</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">80</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">100</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">120</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">150</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">180</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">200</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">250</font></font></td>
+</tr>
+<tr>
+<td class="city" rowspan="4"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Gyeonggi</font></font></td>
+<td class="taleft"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Copper, Seongnam, Namyangju, Hanam, Gwacheon, Bundang</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">60</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">100</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">120</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">150</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">170</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">200</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">220</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">270</font></font></td>
+</tr>
+<tr>
+<td class="taleft"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Incheon, Yangju, Suwon, Hwaseong, Osan, </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Paju, Ansan</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">70</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">110</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">130</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">160</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">180</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">210</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">230</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">280</font></font></td>
+</tr>
+<tr>
+<td class="taleft"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Pyeongtaek, Anseong, Pocheon, Icheon, Yeoju, </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Hometown, Gimpo</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">80</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">120</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">140</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">170</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">190</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">220</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">240</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">290</font></font></td>
+</tr>
+<tr>
+<td class="taleft"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Incheon International Airport, Yeoncheon, Ganghwa, Munsan, Gapyeong</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">90</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">130</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">150</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">180</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">210</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">240</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">260</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">310</font></font></td>
+</tr>
+<tr>
+<td class="city" rowspan="4"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Gangwon</font></font></td>
+<td class="taleft"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Gangneung, Yeongwol, Hwacheon, Jeongseon (Sokcho)</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">180</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">260</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">290</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">320</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">400</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">430</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">500</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">550</font></font></td>
+</tr>
+<tr>
+<td class="taleft"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Wonju, Chuncheon, Closed</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">110</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">150</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">180</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">210</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">250</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">280</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">320</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">370</font></font></td>
+</tr>
+<tr>
+<td class="taleft"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Pyeongchang, Hongcheon, Hoengseong (Cheorwon)</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">150</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">220</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">250</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">280</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">320</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">350</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">400</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">450</font></font></td>
+</tr>
+<tr>
+<td class="taleft"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Taebaek, Inje, Samcheok, </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Donghae (Yanggu, Goseong)</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">200</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">290</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">320</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">350</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">440</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">470</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">550</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">600</font></font></td>
+</tr>
+<tr>
+<td class="city" rowspan="3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Chungbuk</font></font></td>
+<td class="taleft"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cheongju, Cheongwon (Jincheon, voice, 1 tone: 90)</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">100</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">140</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">160</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">190</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">230</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">260</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">290</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">340</font></font></td>
+</tr>
+<tr>
+<td class="taleft"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Boeun, Goesan, Jecheon, Chungju</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">110</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">150</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">170</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">200</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">250</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">280</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">310</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">360</font></font></td>
+</tr>
+<tr>
+<td class="taleft"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Youngdong, Okcheon (Danyang)</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">120</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">160</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">190</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">220</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">280</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">310</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">350</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">400</font></font></td>
+</tr>
+<tr>
+<td class="city" rowspan="4"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Chungnam</font></font></td>
+<td class="taleft"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Daejeon, acting, Kyeryong, princess</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">100</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">140</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">160</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">190</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">250</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">280</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">320</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">370</font></font></td>
+</tr>
+<tr>
+<td class="taleft"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cheonan, Seonghwan, Asan</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">90</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">130</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">150</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">180</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">220</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">250</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">270</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">320</font></font></td>
+</tr>
+<tr>
+<td class="taleft"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Dangjin, Seosan, Budget, Hongseong, </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Nonsan, Geumsan, Gyeonggi</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">120</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">170</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">200</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">300</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">280</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">310</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">350</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">400</font></font></td>
+</tr>
+<tr>
+<td class="taleft"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Seocheon, Boryeong, Cheongyang, Taean (Anmyeondo)</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">130</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">180</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">210</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">240</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">300</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">330</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">380</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">430</font></font></td>
+</tr>
+<tr>
+<td class="city" rowspan="3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Jeonbuk</font></font></td>
+<td class="taleft"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Jeonju, Iksan, Gunsan, Wanju</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">140</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">200</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">230</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">260</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">320</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">350</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">400</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">450</font></font></td>
+</tr>
+<tr>
+<td class="taleft"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Jeongeup, Kimje, Jinan, Buan, Muju</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">150</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">230</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">260</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">290</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">350</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">380</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">430</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">480</font></font></td>
+</tr>
+<tr>
+<td class="taleft"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Namwon, Gochang, Imsil, Longevity</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">170</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">250</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">280</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">310</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">370</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">400</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">450</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">500</font></font></td>
+</tr>
+<tr>
+<td class="city" rowspan="4"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Jeonnam</font></font></td>
+<td class="taleft"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Gwangju, Yeonggwang, Damyang, Jangseong</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">160</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">250</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">280</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">310</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">380</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">410</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">480</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">530</font></font></td>
+</tr>
+<tr>
+<td class="taleft"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Gwangyang, Suncheon, Gurye, Gokseong, Hampyeong, </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Naju, Hwasun</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">190</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">270</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">300</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">330</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">420</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">450</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">520</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">570</font></font></td>
+</tr>
+<tr>
+<td class="taleft"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mokpo, Yeongam, Muan, Boseong, Yeosu</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">200</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">290</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">320</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">350</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">450</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">480</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">550</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">600</font></font></td>
+</tr>
+<tr>
+<td class="taleft"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Haenam, Gangjin, Jangheung, </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Goheung (Jindo, Wando)</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">230</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">320</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">350</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">380</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">500</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">530</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">600</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">350</font></font></td>
+</tr>
+<tr>
+<td class="city" rowspan="5"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kyungbuk</font></font></td>
+<td class="taleft"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Daegu, Andong, Yeongju, Gunwi, </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Yoseong, Yecheon</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">150</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">220</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">250</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">310</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">350</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">380</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">440</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">490</font></font></td>
+</tr>
+<tr>
+<td class="taleft"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Mungyeong, Sangju, Gimcheon, Sunsan, Gumi</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">140</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">200</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">230</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">290</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">330</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">360</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">420</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">470</font></font></td>
+</tr>
+<tr>
+<td class="taleft"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bonghwa, Goryeong, Qingdao, Yeongcheon, Sungju</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">170</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">250</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">280</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">340</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">380</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">410</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">480</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">530</font></font></td>
+</tr>
+<tr>
+<td class="taleft"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Pohang, Gyeongju, Guryongpo, Gampo</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">180</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">260</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">290</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">350</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">400</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">430</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">500</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">550</font></font></td>
+</tr>
+<tr>
+<td class="taleft"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Uljin, Youngdeok, Pyeonghae, Nutrition, Cheongsong</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">210</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">300</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">330</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">390</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">450</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">460</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">550</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">600</font></font></td>
+</tr>
+<tr>
+<td class="city" rowspan="5"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Gyeongnam</font></font></td>
+<td class="taleft"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Busan, Yangsan, Ulsan, Eonyang, Ulju, </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Gimhae, Jinhae</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">190</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">270</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">300</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">360</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">420</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">450</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">520</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">570</font></font></td>
+</tr>
+<tr>
+<td class="taleft"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Pearl, Xianyang, Geochang, Sancheong, Chungryeong</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">180</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">250</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">280</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">340</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">380</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">410</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">480</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">530</font></font></td>
+</tr>
+<tr>
+<td class="taleft"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Changwon, Hapcheon, Miryang, Masan, Haman, </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sacheon, Hadong</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">180</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">260</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">290</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">350</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">400</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">430</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">500</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">550</font></font></td>
+</tr>
+<tr>
+<td class="taleft"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Kijang, Goseong, Onsan</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">200</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">280</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">310</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">370</font></font></td>
+
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">430</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">460</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">530</font></font></td>
+<td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">580</font></font></td>
+</tr>
+    <tr>
+        <td class="taleft"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Geoje, Tongyeong, Namhae</font></font></td>
+        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">220</font></font></td>
+        
+        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">300</font></font></td>
+        
+        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">330</font></font></td>
+        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">390</font></font></td>
+        
+        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">450</font></font></td>
+        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">480</font></font></td>
+        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">550</font></font></td>
+        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">600</font></font></td>
+    </tr>
+    </tbody>
+</table>
+
+            <div class="nogood-good">
+               
+
+               
+                <div class="clear"></div>
+            </div>
+        </td>
+    </tr>
+   
+
+</tbody></table>
+
+                <div class="clearfix"></div>
+            
+            <!-- Row End -->
+        </div>
+        <!-- end container -->
+    </section>
+    <!-- =-=-=-=-=-=-= Tracking History End =-=-=-=-=-=-= -->
+
+
+     <!-- =-=-=-=-=-=-= FOOTER =-=-=-=-=-=-= -->
+     <footer class="footer-area">
+        <% include ./components/footer %>
+    </footer>
+	
+<!-- =-=-=-=-=-=-= Quote Modal =-=-=-=-=-=-= -->
+<div data-target="#request-quote" data-toggle="modal" class="quote-button hidden-xs">
+      <a class="btn btn-primary" href="javascript:void(0)"><i class="fa fa-envelope"></i></a>
+</div>
+<!-- =-=-=-=-=-=-= Quote Modal End =-=-=-=-=-=-= -->
+
+    <% include ./components/script %>
+    <!-- For This Page Only  -->
+    <script src="js/select2.min.js"></script>
+    <script src="js/moment.js"></script>
+    <script src="js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+                /* ======= Jquery Select Options ======= */
+               $(".country").select2({
+                  placeholder: "Select Departure Location",
+                  allowClear: true
+                });
+                
+                $(".delivery").select2({
+                  placeholder: "Select Delivery  Location",
+                  allowClear: true
+                });
+                
+                 $(".weight").select2({
+                  placeholder: "Select Weight Unit",
+                  allowClear: true
+                });
+                
+                $(".packaging").select2({
+                  placeholder: "Select Packaging Unit",
+                  allowClear: true
+                });
+                
+                $(".cargo-type").select2({
+                  placeholder: "Select Cargo Type",
+                  allowClear: true
+                });
+                
+                $(".insurance").select2({
+                  placeholder: "Select Insurance Required?",
+                  allowClear: true
+                });
+            /* ======= Date Time Picker ======= */
+            $('#datetimepicker1').datetimepicker();
+        });
+      </script>
+    
+   <!-- =-=-=-=-=-=-= Quote Modal =-=-=-=-=-=-= --> 
+   <% include ./components/quotemodel  %>
+   <!-- =-=-=-=-=-=-= Quote Modal End =-=-=-=-=-=-= -->
+</body>
+
+</html>

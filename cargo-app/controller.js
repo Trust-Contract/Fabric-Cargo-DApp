@@ -95,7 +95,8 @@ controller.prototype.add_cargo = function(req, res){
 	
 		try{req.body = JSON.parse(Object.keys(req.body)[0])}catch(err){req.body = req.body}
 		// console.log(req.body);
-		var key = req.body.Key;
+		var key = "CARGO" + (new Date().toISOString());
+		// var key = req.body.Key;
 		var weight = req.body.weight;
 		var registrant = req.body.Registrant;
         var driver = req.body.Driver;
