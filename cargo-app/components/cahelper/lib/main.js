@@ -12,8 +12,8 @@ var fabric_client=null;
 var fabric_ca_client=null;
 var admin_user = null;
 // var member_user = null;
-const store_path = path.join(os.homedir(), '.hfc-key-store');
-const fabric_ca = fabric_config.ca_nodes[0];
+var store_path = path.join(os.homedir(), '.hfc-key-store');
+var fabric_ca = fabric_config.ca_nodes[0];
 
 
     var cahelper = {};
@@ -64,16 +64,20 @@ cahelper.enrollCaUser = function(id,password,handler,errhandler){
     return Fabric_Client.newDefaultKeyValueStore({ path: store_path
     }).then((state_store) => {
         // assign the store to the fabric client
+        // console.log(state_store);
         fabric_client.setStateStore(state_store);
         var crypto_suite = Fabric_Client.newCryptoSuite();
+        // console.log(crypto_suite);
         // use the same location for the state store (where the users' certificate are kept)
         // and the crypto store (where the users' keys are kept)
         var crypto_store = Fabric_Client.newCryptoKeyStore({path: store_path});
+        // console.log(crypto_store);
         crypto_suite.setCryptoKeyStore(crypto_store);
         fabric_client.setCryptoSuite(crypto_suite);
         // be sure to change the http to https when the CA is running TLS enabled
         fabric_ca_client = new Fabric_CA_Client(fabric_ca, null , '',crypto_suite);
-    return fabric_ca_client.enroll({enrollmentID: id, enrollmentSecret: password});
+        // console.log(fabric_ca_client);
+        return fabric_ca_client.enroll({enrollmentID: id, enrollmentSecret: password});
     }).then(function(enrollment){
     console.log("ca enroll user success")
     return fabric_client.createUser(

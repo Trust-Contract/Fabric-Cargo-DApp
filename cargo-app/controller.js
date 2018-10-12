@@ -89,7 +89,7 @@ controller.prototype.get_cargo = function(req, res){
 	const request = helper.getChaincodeRequest('cargo-app', tx_id, 'queryMylist', 'mychannel', [user]); 
 	// const request = helper.getChaincodeRequest('cargo-app', tx_id, 'queryCargo', 'mychannel', [key]); 
 
-	helper.query("e",request, queryhandler.bind(this, res));
+	helper.query(user,request, queryhandler.bind(this, res));
 
 }
 
@@ -195,6 +195,7 @@ controller.prototype.loginuser = function(req,res){
 
 			if(password==rows[0].pw){
 				console.log("auth success");
+				// return handler(userid);
 				cahelper.enrollCaUser(userid,password,handler,errhandler);
 			}else{
 				console.log("auth fail");

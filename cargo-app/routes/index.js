@@ -10,7 +10,7 @@ router.get('/get_cargo/:id', function(req, res){
   //check session
   var sess=req.session;
   if(sess.userid){
-  controller.get_cargo(req, res);
+    controller.get_cargo(req, res);
   }else{
    var response={
 	   result:"fail",
