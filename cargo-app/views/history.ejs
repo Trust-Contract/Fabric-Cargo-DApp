@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="application" >
+
+<head>
+    <% include ./components/head %>
+</head>
+
+
+<body>
+    <!-- =-=-=-=-=-=-= PRELOADER =-=-=-=-=-=-= -->
+    <div class="preloader"><span class="preloader-gif"></span></div>
+
+    <!-- =-=-=-=-=-=-= Color Switcher =-=-=-=-=-=-= -->
+    <div class="color-switcher" id="choose_color"> <a href="#." class="picker_close"><i class="fa fa-gear"></i></a>
+        <h5>STYLE SWITCHER</h5>
+        <div class="theme-colours">
+            <p> Choose Colour style </p>
+            <ul>
+                <li>
+                    <a href="#." class="defualt" id="defualt"></a>
+                </li>
+                <li>
+                    <a href="#." class="red" id="red"></a>
+                </li>
+                <li>
+                    <a href="#." class="green" id="green"></a>
+                </li>
+                <li>
+                    <a href="#." class="orange" id="orange"></a>
+                </li>
+                <li>
+                    <a href="#." class="purple" id="purple"></a>
+                </li>
+                <li>
+                    <a href="#." class="yellow" id="yellow"></a>
+                </li>
+                
+            </ul>
+        </div>
+        <div class="clr"> </div>
+    </div>
+    <!-- =-=-=-=-=-=-= HEADER =-=-=-=-=-=-= -->
+    <% include ./components/header %>
+    <script type="text/javascript">
+        if(<%= session %>){
+            document.getElementById('login').style.visibility = "hidden";
+            document.getElementById('signup').style.visibility = "hidden";
+            document.getElementById('profile').style.visibility = "visible";
+        }else{
+            document.getElementById('login').style.visibility = "visible";
+            document.getElementById('signup').style.visibility = "visible";
+            document.getElementById('profile').style.visibility = "hidden";
+        }
+    </script>
+    <!-- =-=-=-=-=-=-= HEADER END =-=-=-=-=-=-= -->
+
+    <!-- =-=-=-=-=-=-= PAGE BREADCRUMB =-=-=-=-=-=-= -->
+    <section class="breadcrumbs-area parallex">
+        <div class="container">
+            <div class="row">
+                <div class="page-title">
+                    <div class="col-sm-12 col-md-6 page-heading text-left">
+                        <h3>track your order </h3>
+                        <h2>Order Tracking</h2>
+                    </div>
+                    <div class="col-sm-12 col-md-6 text-right">
+                        <ul class="breadcrumbs">
+                            <li><a href="#">home</a></li>
+                            <li><a href="#">pages</a></li>
+                            <li><a href="#">tracking</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- =-=-=-=-=-=-= PAGE BREADCRUMB END =-=-=-=-=-=-= -->
+
+    <!-- =-=-=-=-=-=-= Tracking History =-=-=-=-=-=-= -->
+    <section id="order-tracking" class="section-padding-80">
+        <div class="container">
+            <!-- Row -->
+            <div class="row">
+                <div class="col-sm-12 col-xs-12 col-md-12">
+                    <!-- Search Filter -->
+                    <div class="tracking-search">
+            <div class="input-group" id="adv-search">
+                <input type="text" class="form-control" placeholder="Track Your Shipment" />
+                <div class="input-group-btn">
+                    <div class="btn-group" role="group">
+                        <div class="dropdown dropdown-lg">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+                            <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                <form class="form-horizontal" role="form">
+                                  <div class="form-group">
+                                    <label for="filter">Filter by</label>
+                                    <select class="form-control">
+                                        <option value="0" selected>Order History</option>
+                                        <option value="1">Delivered</option>
+                                        <option value="2">Shipped</option>
+                                        <option value="3">Pending</option>
+                                        <option value="4">Canceled</option>
+                                    </select>
+                                  </div>
+                                </form>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                    </div>
+                </div>
+            </div>
+</div>
+                    <!-- Search Filter End -->
+                    <!-- Tracking History -->
+                        <div class="block-content"  >
+        <div class="table-responsive" ng-controller="appController"  data-ng-init="queryCargo()">
+            <table class="table table-clean-paddings margin-bottom-0">
+                <thead>
+                    <tr>
+                        <th>Customer</th>
+                        <th>weight</th>
+                        <th>Date</th>
+                        <th>Shipping Id</th>
+                         <th>Money</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <tr>
+                        <td>
+                           <div class="contact-container"><a href="#">Muhammad Umair</a> <span>on Aug 19, 2016</span></div>
+                        </td>
+                        <td>London</td>
+                          <td>SW-95-21</td>
+                            <td>New York</td>
+                            <td><span class="label label-success label-transparent">Delivered</span></td>
+                    </tr> -->
+                    <tr ng-repeat="cargo in all_cargo">
+                      <td>
+                        <div class="contact-container"><a href="#">{{cargo.Registrant}}</a><span>{{cargo.date}}</span></div>
+                      </td>
+                      <td>{{cargo.weight}}</td>
+                      <td>{{cargo.date}}</td>
+                      <!-- <td>{{cargo.distance}}</td> -->
+                      <td>{{cargo.Key}}</td>
+                      <td>{{cargo.money}}</td>
+                      <td><span class="label label-success label-transparent">{{cargo.Status}}</span></td>
+                    </tr>
+                    <!-- <tr>
+                        <td>
+                           <div class="contact-container"><a href="#">Muhammad Umair</a> <span>on Aug 19, 2016</span></div>
+                        </td>
+                        <td>London</td>
+                          <td>SW-95-21</td>
+                            <td>New York</td>
+                            <td><span class="label label-warning label-transparent">Shipped</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                           <div class="contact-container"><a href="#">Muhammad Umair</a> <span>on Aug 19, 2016</span></div>
+                        </td>
+                        <td>London</td>
+                          <td>SW-95-21</td>
+                            <td>New York</td>
+                            <td><span class="label label-danger  label-transparent">Canceled</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                           <div class="contact-container"><a href="#">Muhammad Umair</a> <span>on Aug 19, 2016</span></div>
+                        </td>
+                        <td>London</td>
+                          <td>SW-95-21</td>
+                            <td>New York</td>
+                            <td><span class="label label-primary label-transparent">Pending</span></td>
+                    </tr>
+                    <tr>
+                        <td>
+                           <div class="contact-container"><a href="#">Muhammad Umair</a> <span>on Aug 19, 2016</span></div>
+                        </td>
+                        <td>London</td>
+                          <td>SW-95-21</td>
+                            <td>New York</td>
+                            <td><span class="label label-success label-transparent">Delivered</span></td>
+                    </tr>
+                     -->
+             
+                </tbody>
+            </table>
+        </div>
+    </div>
+                    <!-- Tracking History End -->
+                </div>
+            </div>
+            <!-- Row End -->
+        </div>
+        <!-- end container -->
+    </section>
+    <!-- =-=-=-=-=-=-= Tracking History End =-=-=-=-=-=-= -->
+
+
+    <!-- =-=-=-=-=-=-= FOOTER =-=-=-=-=-=-= -->
+    <footer>
+        <% include ./components/footer %>
+    </footer>
+
+	<!-- =-=-=-=-=-=-= Quote Modal =-=-=-=-=-=-= -->
+	<div data-target="#request-quote" data-toggle="modal" class="quote-button hidden-xs">
+		  <a class="btn btn-primary" href="javascript:void(0)"><i class="fa fa-envelope"></i></a>
+	</div>
+	<!-- =-=-=-=-=-=-= Quote Modal End =-=-=-=-=-=-= -->
+
+      <% include ./components/script %>
+    <script src="js/core.js"></script>
+    <!-- =-=-=-=-=-=-= Quote Modal =-=-=-=-=-=-= --> 
+    <% include ./components/quotemodel  %>
+    <!-- =-=-=-=-=-=-= Quote Modal End =-=-=-=-=-=-= -->
+</body>
+
+</html>
